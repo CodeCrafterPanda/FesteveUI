@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply text-body font-normal text-sm leading-6;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1920px] mx-auto px-4 md:px-8 2xl:px-16;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center flex-shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-none focus:shadow;
+  }
+  
+  .btn-primary {
+    @apply btn text-brand-light bg-accent hover:bg-accent-hover;
+  }
+  
+  .btn-secondary {
+    @apply btn text-accent bg-transparent border border-gray-300 hover:bg-accent hover:text-brand-light hover:border-accent;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 text-body text-sm placeholder-body min-h-12 transition duration-200 ease-in-out border border-gray-300 rounded focus:outline-none focus:border-accent;
+  }
+  
+  .select {
+    @apply input cursor-pointer;
+  }
+  
+  .textarea {
+    @apply input resize-none;
+  }
+}
+
+@layer utilities {
+  .text-heading {
+    @apply text-gray-800;
+  }
+  
+  .text-body {
+    @apply text-gray-600;
+  }
+  
+  .text-muted {
+    @apply text-gray-500;
+  }
+  
+  .bg-brand-light {
+    @apply bg-gray-50;
+  }
+  
+  .border-gray-base {
+    @apply border-gray-300;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  .container {
+    @apply px-4 md:px-8 2xl:px-16;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.animate-slideInDown {
+  animation: slideInDown 0.3s ease-out;
+}
